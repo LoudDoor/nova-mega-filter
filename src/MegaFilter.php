@@ -145,7 +145,7 @@ class MegaFilter extends Card
 
     private function generateCacheKey(): string
     {
-        return hash('md5', $this->columns()->pluck('attribute')->sort()->join(''));
+        return hash('md5', implode('', $this->columns()->pluck('attribute')->sort()->toArray()));
     }
 
     /**
